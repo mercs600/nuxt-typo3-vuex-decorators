@@ -1,6 +1,5 @@
-import { Module, VuexModule } from 'vuex-module-decorators'
-
-@Module
-export default class Vehicle extends VuexModule {
-  wheels = 2
-}
+import { Store } from 'vuex'
+import { initialiseStores } from '~/utils/store-accessor'
+const initializer = (store: Store<any>) => initialiseStores(store)
+export const plugins = [initializer]
+export * from '~/utils/store-accessor'
